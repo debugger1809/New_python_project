@@ -26,3 +26,13 @@ if __name__ == '__main__':
     fptr.write(str(result) + '\n')
 
     fptr.close()
+
+    
+    #Test Case 1
+    #array of [10,32,44,55,66,77]
+    
+    #Test Case 2
+    #array of [12,134,145,234,556,666,777]
+    
+    #Test Case 3
+    #array of 1000 numbers
