@@ -1,0 +1,66 @@
+PROBLEM :
+#Alice and Bob each created one problem for HackerRank. A reviewer rates the two challenges, awarding points on a scale from to for three categories: problem clarity, originality, and difficulty.
+#We define the rating for Alice's challenge to be the triplet , and the rating for Bob's challenge to be the triplet .
+#Your task is to find their comparison points by comparing with , with , and with .
+#If , then Alice is awarded point.
+#If , then Bob is awarded point.
+#If , then neither person receives a point.
+#Comparison points is the total points a person earned.
+#Given and , determine their respective comparison points.
+#For example, and . For elements , Bob is awarded a point because . For the equal elements and , no points are earned. Finally, for elements , 
+#so Alice receives a point. 
+#Your return array would be with Alice's score first and Bob's second. 
+
+# SOLUTION : 
+#!/bin/python3
+
+import math
+import os
+import random
+import re
+import sys
+
+# Complete the compareTriplets function below.
+#program Starts
+def compareTriplets(a0, a1, a2,b0, b1, b2):
+    
+    alice = [a0, a1, a2]
+    bob = [b0, b1, b2]
+    score = [0,0]
+    
+    
+# The purpose of zip() is to map the similar index of multiple containers so that they can be used just using as single entity. 
+# be it student database or scorecard or any other utility that requires mapping of groups. A small example of scorecard is demonstrated below.
+# Python code to demonstrate the application of 
+# zip()
+# initializing list of players.
+#players = [ "Sachin", "Sehwag", "Gambhir", "Dravid", "Raina" ]
+# initializing their scores
+#scores = [100, 15, 17, 28, 43 ]
+# printing players and scores.
+#for pl, sc in zip(players, scores):
+    
+    
+    for a, b in zip(alice, bob):
+        if a > b:
+            score[0]+= 1
+        elif b > a:
+            score[1]+=1
+    return score
+    
+if __name__ == '__main__':
+    fptr = open(os.environ['OUTPUT_PATH'], 'w')
+    
+    #here I was getting runtie error that a0 is not defined so I made change in following assginments for input list 
+    # to different variables in List which was given as just a and b initially(original code).
+    
+    a0, a1, a2 = list(map(int, input().rstrip().split()))
+
+    b0, b1, b2  = list(map(int, input().rstrip().split()))
+    
+    result = compareTriplets(a0, a1, a2,b0, b1, b2)
+
+    fptr.write(' '.join(map(str, result)))
+    fptr.write('\n')
+
+    fptr.close()
